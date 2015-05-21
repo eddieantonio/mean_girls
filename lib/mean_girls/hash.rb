@@ -2,10 +2,6 @@ class Hash
   alias :original_fetch :fetch
 
   def fetch(key, &block)
-    begin
-      original_fetch(key, &block)
-    rescue KeyError
-      raise KeyError.new("Stop trying to make fetch happen, #{key.inspect}!")
-    end
+    raise KeyError.new "Stop try to make fetch happen! It's not going to happen!"
   end
 end
